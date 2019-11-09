@@ -1,0 +1,21 @@
+<agm-map [latitude]='latitude' [longitude]='longitude' 
+      [mapTypeId]='mapType'
+      [zoom]="14">
+      <!-- <agm-marker
+        *ngFor="let marker of points"
+        [latitude]="marker.Position?.LatitudeDegrees"
+        [longitude]="marker.Position?.LongitudeDegrees"
+        [opacity]="marker.alpha"
+        [markerDraggable]="true"
+        (markerClick)="selectMarker($event)"
+      >
+      </agm-marker> -->
+    <agm-polyline *ngFor="let polyline of polylines" [strokeColor]="colors[polyline.level]">
+      <agm-polyline-point *ngFor="let data of polyline.points" 
+        [latitude]="data.Position.LatitudeDegrees"
+        [longitude]="data.Position.LongitudeDegrees">
+      </agm-polyline-point>
+    </agm-polyline>
+</agm-map>
+
+    
